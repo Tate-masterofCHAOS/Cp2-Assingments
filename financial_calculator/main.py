@@ -14,10 +14,18 @@
 # Create your functions
 # Have at least 2 people test your code to make sure it works
  
-def CompoundInt_cal():
-    initial_amount = input("How much money do you have initially")
-    interest_rate = input("What is the interest rate")
-    pass
+initial_amount = ""
+interest_rate = ""
+years = ""
+def CompoundInt_cal(initial_amount, interest_rate, years):
+    int(years)
+    while years > 0
+    interest_rate = int(interest_rate) / 100
+    Interest = int(initial_amount) * float(interest_rate)
+    initial_amount = int(initial_amount) + int(Interest)
+    years - 0
+    print(initial_amount)
+    return initial_amount 
 
 def Budget_Allocator():
     pass
@@ -28,4 +36,13 @@ def tip_cal():
     pass
 
 def main():
+    job = input("what would you like to use(Compound interest calculator, ): ")
+    if job == "Compound interest calculator":
+        initial_amount = input("How much money do you have initially: ")
+        interest_rate = input("What is the interest rate: ")
+        years = input("How many years will you be acruing interes")
+        CompoundInt_cal(initial_amount, interest_rate, years)
+    else:
+        print("Sorry thats not a function please check your spelling or try something else")
     pass
+main()
