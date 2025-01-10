@@ -18,13 +18,12 @@ initial_amount = ""
 interest_rate = ""
 years = ""
 def CompoundInt_cal(initial_amount, interest_rate, years):
-    int(years)
-    while years > 0
+    runs = int(years)
     interest_rate = int(interest_rate) / 100
-    Interest = int(initial_amount) * float(interest_rate)
-    initial_amount = int(initial_amount) + int(Interest)
-    years - 0
-    print(initial_amount)
+    for i in range(runs):
+        Interest = int(initial_amount) * float(interest_rate)
+        initial_amount = float(initial_amount) + float(Interest)
+        print(f"{initial_amount:.2f} dollars")
     return initial_amount 
 
 def Budget_Allocator():
@@ -40,7 +39,7 @@ def main():
     if job == "Compound interest calculator":
         initial_amount = input("How much money do you have initially: ")
         interest_rate = input("What is the interest rate: ")
-        years = input("How many years will you be acruing interes")
+        years = input("How many years will you be acruing interest: ")
         CompoundInt_cal(initial_amount, interest_rate, years)
     else:
         print("Sorry thats not a function please check your spelling or try something else")
