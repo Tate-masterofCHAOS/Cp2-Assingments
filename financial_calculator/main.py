@@ -44,24 +44,41 @@ def Budget_Allocator(income, spen_per, ent_per, sav_per):
     print(f"Your entertainment money is {sav:.2f} dollars")
     pass
 
-def price_cal():
+def price_cal(price, per_off):
+    discount = int(per_off) / 100
+    total_discount = float(price) * discount
+    price = float(price) - total_discount
+    print(f"Yout total is now {price:.2f} dollars")
     pass
-def tip_cal():
+
+def tip_cal(price, tip_per):
+    tip = int(tip_per) / 100
+    total_tip = float(price) * tip
+    price = float(price) + total_tip
+    print(f"Yout total is now {price:.2f} dollars")
     pass
 
 def main():
-    job = input("what would you like to use(Compound interest calculator, ): ")
+    job = input("what would you like to use(Compound interest calculator, Budget allocator): ")
     if job == "Compound interest calculator":
         income = input("How much money do you have initially: ")
         interest_rate = input("What is the interest rate: ")
         years = input("How many years will you be acruing interest: ")
         CompoundInt_cal(income, interest_rate, years)
-    if job == "Budget allocator":
+    elif job == "Budget allocator":
         income = input("How much money do you have: ")
         spen_per = input("What percent is spending money: ")
         ent_per = input("What percent is going into entertainment: ")
         sav_per = input("What percent is going into savings: ")
         Budget_Allocator(income, spen_per, ent_per, sav_per)
+    elif job == "Price calculator":
+        price = input("what is the price: ")
+        per_off = input("How much percent off")
+        price_cal(price, per_off)
+    elif job == "Tip calculator":
+        price = input("what is the price: ")
+        tip_per = input("what percent tip: ")
+        tip_cal(price, tip_per)
     else:
         print("Sorry thats not a function please check your spelling or try something else")
     pass
