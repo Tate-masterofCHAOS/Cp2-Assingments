@@ -14,19 +14,34 @@
 # Create your functions
 # Have at least 2 people test your code to make sure it works
  
-initial_amount = ""
+income = ""
 interest_rate = ""
 years = ""
-def CompoundInt_cal(initial_amount, interest_rate, years):
+def Save_time():
+    pass
+
+def CompoundInt_cal(income, interest_rate, years):
     runs = int(years)
     interest_rate = int(interest_rate) / 100
     for i in range(runs):
-        Interest = int(initial_amount) * float(interest_rate)
-        initial_amount = float(initial_amount) + float(Interest)
-        print(f"{initial_amount:.2f} dollars")
-    return initial_amount 
+        Interest = int(income) * float(interest_rate)
+        income = float(income) + float(Interest)
+        print(f"{income:.2f} dollars")
+    return income
 
-def Budget_Allocator():
+def Budget_Allocator(income, spen_per, ent_per, sav_per):
+    spen_per = int(spen_per) / 100
+    Spen_mon = float(income) * float(spen_per)
+    spen = Spen_mon
+    print(f"Your spending money is {spen:.2f} dollars")
+    ent_per = int(ent_per) / 100
+    ent_mon = float(income) * float(ent_per)
+    ent = ent_mon
+    print(f"Your entertainment money is {ent:.2f} dollars")
+    sav_per = int(sav_per) / 100
+    sav_mon = float(income) * float(sav_per)
+    sav = sav_mon
+    print(f"Your entertainment money is {sav:.2f} dollars")
     pass
 
 def price_cal():
@@ -37,10 +52,16 @@ def tip_cal():
 def main():
     job = input("what would you like to use(Compound interest calculator, ): ")
     if job == "Compound interest calculator":
-        initial_amount = input("How much money do you have initially: ")
+        income = input("How much money do you have initially: ")
         interest_rate = input("What is the interest rate: ")
         years = input("How many years will you be acruing interest: ")
-        CompoundInt_cal(initial_amount, interest_rate, years)
+        CompoundInt_cal(income, interest_rate, years)
+    if job == "Budget allocator":
+        income = input("How much money do you have: ")
+        spen_per = input("What percent is spending money: ")
+        ent_per = input("What percent is going into entertainment: ")
+        sav_per = input("What percent is going into savings: ")
+        Budget_Allocator(income, spen_per, ent_per, sav_per)
     else:
         print("Sorry thats not a function please check your spelling or try something else")
     pass
