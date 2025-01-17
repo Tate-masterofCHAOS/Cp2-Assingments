@@ -10,8 +10,8 @@
 #Have at least 2 people test your code before submission!
 
 def main():
-    books = []
-    authors = []
+    books = {}
+    authors = {}
     while True:
         job = input("Would you like to add, remove, or search for a book: ")
         job.lower
@@ -25,6 +25,10 @@ def main():
             author = input("What is the author of book you wish to remove: ")
             books.remove(book)
             authors.remove(author)
+        elif job == "search" or "search for a book":
+            path = input("would you like to search by book or author").lower
+            if path == "book":
+                pass
         else:
             print("I am sorry that is not a function please double check your spelling")
     
