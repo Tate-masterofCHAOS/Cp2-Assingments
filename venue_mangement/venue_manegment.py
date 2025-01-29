@@ -5,7 +5,7 @@ stages = set({})
 equipment = set({})
 #This is my function to add a location
 def add_stage():
-    stages.add(input("What location would you like to add: ").lower)
+    stages.add( input("What location would you like to add: ").lower())
     return
 
 
@@ -17,7 +17,7 @@ def remove_stage():
 
 #This is my function to check the equipment and stage name of who it owns it
 def add_equipment():
-    equipment.add(input("What set of equipment would you like to add: ").lower)
+    equipment.add( input("What set of equipment would you like to add: ").lower())
     pass
 
 
@@ -28,7 +28,7 @@ def remove_equipment():
 
 
 #This is my main function
-def venue_managementMAIN():
+def venue_managementMAIN(stages):
     while True:
         choice = input("Would you like to manage stages or equipment or leave: ").lower()
         if choice == "location":
@@ -39,6 +39,8 @@ def venue_managementMAIN():
                 remove_stage()
             elif location == "view":
                 print(stages)
+            else:
+                print("Sorry that is not a viable option please check you spelling and try again")
         elif choice == "equipment":
             location = input("Would you like to add, remove, or view equipment: ").lower()
             if location == "add":
@@ -47,11 +49,13 @@ def venue_managementMAIN():
                 remove_equipment()
             elif location == "view":
                 print(equipment)
+            else:
+                print("Sorry that is not a viable option please check you spelling and try again")
         elif choice == "leave":
             break
         else:
             print("Sorry that is not a viable option please check you spelling and try again")
 
 
-venue_managementMAIN()
+venue_managementMAIN(stages)
 #here after used it will go to ticket sales and admission
