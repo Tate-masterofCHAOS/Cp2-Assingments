@@ -1,12 +1,6 @@
 import string
 import random
  
-
-
-    
- 
-
-
 def main():
     length = int(input("Enter password length: "))
     print('''Choose character set for password from these : 
@@ -15,25 +9,25 @@ def main():
          3. Special characters
          4. Exit''')
  
-    characterList = ""
+    CharaList = ""
  
     # Getting character set for password
     while(True):
-        choice = int(input("Pick a number "))
-        if(choice == 1):
+        requirement = int(input("Pick a number "))
+        if(requirement == 1):
          
             # Adding letters to possible characters
             characterList += string.ascii_letters
-        elif(choice == 2):
+        elif(requirement == 2):
             
             # Adding digits to possible characters
             characterList += string.digits
-        elif(choice == 3):
+        elif(requirement == 3):
          
             # Adding special characters to possible
             # characters
             characterList += string.punctuation
-        elif(choice == 4):
+        elif(requirement == 4):
             break
         else:
             print("Please pick a valid option!")
