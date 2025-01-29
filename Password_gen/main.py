@@ -1,45 +1,56 @@
-import random 
-#This is my password generator assingments 
-#A main function that runs the code Functions for the different password requirements A function that assembles that password once it is the correct length Users should be able to specify length and if they want to include uppercase letters, lowercase letters, numbers, special characters
-
-L_charas = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "{", "}", "[", "]", "?", "/", ",", ".", "<", ">", "=", "+", "-", "_"]
-def F_length():    
-    V_length = int(input("what is the desired length: "))
-    return V_length
+import string
+import random
+ 
 
 
-def F_big_letter():
-    pass
-
-
-def F_small_letter():
-    pass
-
-
-def F_Nums():
-    pass
-
-
-def F_Special_Chara():
-    pass
-
-def password():
-    print(random.choice(L_charas))
-    pass
+    
+ 
 
 
 def main():
-    V_requirement1 = input("Would you like to specify a length: ").lower
-    V_requirement2 = input("would you like to require uppercase letters: ").lower
-    V_requirement3 = input("would you like to require lowercase letters: ").lower
-    V_requirement4 = input("would you like to require numbers: ").lower
-    V_requirement5 = input("would you like to require special characters: ").lower
-    L_requirments = [V_requirement1, V_requirement2, V_requirement3, V_requirement4, V_requirement5]
-
-
-
-
-
+    length = int(input("Enter password length: "))
+    print('''Choose character set for password from these : 
+         1. Digits
+         2. Letters
+         3. Special characters
+         4. Generate  Password''')
+ 
+    characterList = ""
+ 
+    # Getting character set for password
+    while(True):
+        choice = int(input("Pick a number "))
+        if(choice == 1):
+         
+            # Adding letters to possible characters
+            characterList += string.ascii_letters
+        elif(choice == 2):
+            
+            # Adding digits to possible characters
+            characterList += string.digits
+        elif(choice == 3):
+         
+            # Adding special characters to possible
+            # characters
+            characterList += string.punctuation
+        elif(choice == 4):
+            break
+        else:
+            print("Please pick a valid option!")
+ 
+    password = []
+ 
+    for i in range(length):
+   
+        # Picking a random character from our 
+        # character list
+        randomchar = random.choice(characterList)
+     
+        # appending a random character to password
+        password.append(randomchar)
+ 
+    # printing password as a string
+    print("The random password is " + "".join(password))
 
 
 main()
