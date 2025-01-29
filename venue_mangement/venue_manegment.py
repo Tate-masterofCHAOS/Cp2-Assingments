@@ -1,7 +1,8 @@
 #Tate Morgan venue management stuff
 
 
-stages = set()
+stages = set({})
+equipment = set({})
 #This is my function to add a location
 def add_stage():
     stages.add(input("What location would you like to add: ").lower)
@@ -10,19 +11,26 @@ def add_stage():
 
 #this is my function to drop a location
 def remove_stage():
-    locations.remove( input("What location would you like to remove: ").lower())
+    stages.remove( input("What location would you like to remove: ").lower())
     pass
 
 
 #This is my function to check the equipment and stage name of who it owns it
-def equipment():
+def add_equipment():
+    equipment.add(input("What set of equipment would you like to add: ").lower)
+    pass
+
+
+#This is my function to check the equipment and stage name of who it owns it
+def remove_equipment():
+    equipment.remove( input("What set of equipment would you like to remove: ").lower())
     pass
 
 
 #This is my main function
 def venue_managementMAIN():
     while True:
-        choice = input("Would you like to manage stages or equipment: ").lower()
+        choice = input("Would you like to manage stages or equipment or leave: ").lower()
         if choice == "location":
             location = input("Would you like to add, remove, or view stages: ").lower()
             if location == "add":
@@ -30,9 +38,19 @@ def venue_managementMAIN():
             elif location == "remove":
                 remove_stage()
             elif location == "view":
-                print(locations)
-        if choice == "stage names":
-        pass
+                print(stages)
+        elif choice == "equipment":
+            location = input("Would you like to add, remove, or view equipment: ").lower()
+            if location == "add":
+                add_equipment()
+            elif location == "remove":
+                remove_equipment()
+            elif location == "view":
+                print(equipment)
+        elif choice == "leave":
+            break
+        else:
+            print("Sorry that is not a viable option please check you spelling and try again")
 
 
 venue_managementMAIN()
