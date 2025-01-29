@@ -7,7 +7,7 @@ def main():
          1. Digits
          2. Letters
          3. Special characters
-         4. Exit''')
+         4. Generate Password''')
  
     CharaList = ""
  
