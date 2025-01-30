@@ -1,7 +1,7 @@
 #Tate Morgan venue management stuff
 
 
-stages = set({})
+stages = set({["Stage name"],["Location"],["Equipment"]})
 equipment = set({})
 #This is my function to add a location
 def add_stage():
@@ -17,13 +17,15 @@ def remove_stage():
 
 #This is my function to check the equipment and stage name of who it owns it
 def add_equipment():
-    equipment.add( input("\nWhat set of equipment would you like to add: ").lower())
+    print(stages)
+    equip_add = input("What stage is the equipment going to")
+    equipment.add( input("\nWhat equipment would you like to add: ").lower())
     pass
 
 
 #This is my function to check the equipment and stage name of who it owns it
 def remove_equipment():
-    equipment.remove( input("\nWhat set of equipment would you like to remove: ").lower())
+    equipment.remove( input("\nWhat equipment would you like to remove: ").lower())
     pass
 
 
@@ -40,7 +42,7 @@ o     o                              o     o                                    
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::ooP'.:::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::...:::::::::::::::::::::::::::::::::::''')
     while True:
-        choice = input("Would you like to manage stages or equipment or leave: ").lower()
+        choice = input("\nWould you like to manage stages or equipment or leave: ").lower()
         if choice == "stages":
             location = input("\nWould you like to add, remove, or view stages: ").lower()
             if location == "add":
@@ -50,7 +52,7 @@ o     o                              o     o                                    
             elif location == "view":
                 print(stages)
             else:
-                print("\nSorry that is not a viable option please check you spelling and try again")
+                print("\nSorry that is not a viable option, please check you spelling and try again")
         elif choice == "equipment":
             location = input("\nWould you like to add, remove, or view equipment: ").lower()
             if location == "add":
@@ -60,11 +62,11 @@ o     o                              o     o                                    
             elif location == "view":
                 print(equipment)
             else:
-                print("\nSorry that is not a viable option please check you spelling and try again")
+                print("\nSorry that is not a viable option, please check you spelling and try again")
         elif choice == "leave":
             break
         else:
-            print("\nSorry that is not a viable option please check you spelling and try again")
+            print("\nSorry that is not a viable option, please check you spelling and try again")
 
 
 venue_managementMAIN(stages)
