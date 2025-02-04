@@ -11,36 +11,37 @@
 
 
 
-def add(books, authors):
+def add(libarby):
     book = input("What book do you wish to add: ").lower()
     author = input("What is the author of the book you wish to add: ").lower()
-    books.append(book)
-    authors.append(author)
-    return books, author
+    new = book + author
+    libarby.append(new)
+    
 
-def remove(books, authors):
+def remove(libarby):
     book = input("What book do you wish to remove: ").lower()
     author = input("What is the author of book you wish to remove: ").lower()
-    books.remove(book)
-    authors.remove(author)
+    libarby.remove(book)
+    libarby.remove(author)
+
+def search(libarby):
+    book = input("What is the title of the book: ").lower()
+    for i in libarby:
+        if i == book:
+            print(libarby[i])
 
 
 
 def main():
-    books = []
-    authors = []
+    libarby = []
     while True:
         job = input("Would you like to add, remove, or search for a book: ").lower()
         if job == "add":
-            add(books, authors)
+            add(libarby)
         elif job == "remove":
-            remove(books,authors)
+            remove(libarby)
         elif job == "search" or "search for a book":
-            path = input("would you like to search by book or author").lower
-            if path == "book":
-                book = input("What is the title of the book").lower()
-                print(books)
-                pass
+            search(libarby)
         else:
             print("I am sorry that is not a function please double check your spelling")
     
