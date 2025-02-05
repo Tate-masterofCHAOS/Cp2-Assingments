@@ -1,57 +1,50 @@
-import string
-import random
- 
+#Stores all items in a list
+#Function to add a new item
+#Function to search the items
+#Function to remove an item
+#Function that runs the code (displays the menu options inside and calls the functions inside of a while True loop)
+#Project must include
+#easy to understand variable and function names
+#Pseudocode comments explaining what the code is doing
+#Good use of white space to keep items separate and easy to read/find
+#Have at least 2 people test your code before submission!
 
-def generation(length,characterList):
-    password = []
- 
-    for i in range(length):
-   
-        # Picking a random character from our 
-        # character list
-        randomchar = random.choice(characterList)
-     
-        # appending a random character to password
-        password.append(randomchar)
- 
-    # printing password as a string
-    print("The random password is " + "".join(password))
-
-    
- 
+def add(books,authors):
+    book = input("What book do you wish to add: ")
+    author = input("What is the author of the book you wish to add: ")
+    books.append(book)
+    authors.append(author)
 
 
+def remove(books,authors):
+    book = input("What book do you wish to remove: ")
+    author = input("What is the author of book you wish to remove: ")
+    books.remove(book)
+    authors.remove(author)
+
+def search(books, authors):
+    path = input("would you like to search by book or author: ").lower
+    if path == "book":
+        book = input("What is the title of the book: ").lower()
+        print(books[book])
+    if path == "author":
+        author = input("Who is the author")
+        print(books[author])
+        print(authors[author])
+        pass
 def main():
-    length = int(input("Enter password length: "))
-    print('''Choose character set for password from these : 
-         1. Digits
-         2. Letters
-         3. Special characters
-         4. Generate  Password''')
- 
-    characterList = ""
- 
-    # Getting character set for password
-    while(True):
-        choice = int(input("Pick a number "))
-        if(choice == 1):
-         
-            # Adding letters to possible characters
-            characterList += string.ascii_letters
-        elif(choice == 2):
-            
-            # Adding digits to possible characters
-            characterList += string.digits
-        elif(choice == 3):
-         
-            # Adding special characters to possible
-            # characters
-            characterList += string.punctuation
-        elif(choice == 4):
-            break
+    books = []
+    authors = []
+    while True:
+        job = input("Would you like to add, remove, or search for a book: ")
+        job.lower
+        if job == "add":
+            add(books,authors)
+        elif job == "remove":
+            remove(books, authors)
+        elif job == "search" or "search for a book":
+            search(books,authors)
         else:
-            print("Please pick a valid option!")
-    generation(length,characterList)
+            print("I am sorry that is not a function please double check your spelling")
     
-
 main()
