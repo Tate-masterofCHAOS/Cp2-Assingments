@@ -7,10 +7,12 @@
 def add(anime_library):
     name = input("What is the name of the anime: ")
     protagonist = input("What is the main character: ")
-    antagonist = input("What is the name of the Main Villain or villin group:n")
+    antagonist = input("What is the name of the Main Villain or villin group: ")
+    gimmick = input("What is the main gimmik: ")
     anime_library.append({"Name": name,
                        "Main Character": protagonist,
-                       "Main Villain(s)": antagonist,})
+                       "Main Villain(s)": antagonist,
+                       "Main Gimmick": gimmick})
 
 
 def remove(anime_library):
@@ -19,7 +21,11 @@ def remove(anime_library):
     anime_library.remove(book)
     anime_library.remove(author)
 
-
+def search(anime_library):
+    name = input("What is the name of the anime")
+    for i in anime_library:
+        if i == name:
+            print({})
 
 
 def main():
