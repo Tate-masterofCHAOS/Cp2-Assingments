@@ -7,10 +7,12 @@
 def add(anime_library):
     name = input("What is the name of the anime: ")
     protagonist = input("What is the main character: ")
-    antagonist = input("What is the name of the Main Villain or villin group:n")
-    anime_library.append({"Name": name,
+    antagonist = input("What is the name of the Main Villain or villin group: ")
+    gimmik = input("What is the main gimmick in the world")
+    anime_library.append({"Anime Name": name,
                        "Main Character": protagonist,
-                       "Main Villain(s)": antagonist,})
+                       "Main Villain(s)": antagonist,
+                       "Main Gimmik": gimmik})
 
 
 def remove(anime_library):
