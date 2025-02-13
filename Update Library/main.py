@@ -5,34 +5,46 @@
 
 
 def add(anime_library):
-    name = input("What is the name of the anime: ")
-    protagonist = input("What is the main character: ")
-    antagonist = input("What is the name of the Main Villain or villin group: ")
-    gimmik = input("What is the main gimmick in the world")
-    anime_library.append({"Anime Name": name,
+    name = input("What is the name of the anime: ").lower()
+    protagonist = input("What is the main character: ").lower()
+    antagonist = input("What is the name of the Main Villain or villin group: ").lower()
+    gimmick = input("What is the main gimmik: ").lower()
+    anime_library.append({"Name": name,
                        "Main Character": protagonist,
                        "Main Villain(s)": antagonist,
-                       "Main Gimmik": gimmik})
+                       "Main Gimmick": gimmick})
 
 
 def remove(anime_library):
-    book = input("What book do you wish to remove: ")
-    author = input("What is the author of book you wish to remove: ")
-    anime_library.remove(book)
-    anime_library.remove(author)
+    name = input("What is the name of the anime: ")
+    protagonist = input("What is the main character: ")
+    antagonist = input("What is the name of the Main Villain or villin group: ")
+    gimmick = input("What is the main gimmik: ")
+    anime_library.remove({"Name": name,
+                       "Main Character": protagonist,
+                       "Main Villain(s)": antagonist,
+                       "Main Gimmick": gimmick})
 
 
+def search(anime_library):
+    name = input("What is the name of the anime")
+    for i in anime_library:
+        if i == name:
+            print({i,i[1],i[2],i[3]})
 
 
 def main():
     anime_library = []
     while True:
-        job = input("Would you like to add, remove, or search for a Anime: ").lower()
+        job = input("Would you like to add, remove, or search for a Anime, you could also say leave to leave: ").lower()
         if job == "add":
             add(anime_library)
+        elif job == "remove":
+            remove(anime_library)
         elif job == "search":
-            print(anime_library)
-        
+            search(anime_library)
+        elif job == "leave":
+            break
         else:
             print("I am sorry that is not a function please double check your spelling")
 
