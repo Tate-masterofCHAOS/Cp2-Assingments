@@ -25,7 +25,7 @@ def print_require(length, director, genre, title):
 
 def main():
     while True:
-        require = input("Would you like to add search requirements or print all movies press 1 for search requirments and 2 for printing all: ")
+        require = input("Would you like to add search requirements or print all movies press 1 for search requirments and 2 for printing all or 3 to leave: ")
         if require == "1":
             #This is what I use to gather information
             length = 1
@@ -33,7 +33,7 @@ def main():
             genre = ""
             title = ""
             while True:
-                requirements = input("Press number according to what you want \n1: Length \n2: Director \n3: Genre \n4: Title \n5: Move on \n6: Leave ")
+                requirements = input("Press number according to what you want \n1: Length \n2: Director \n3: Genre \n4: Title \n5: Move on ")
                 if requirements == "1":
                     length = int(input("What is the length you want: "))
                 if requirements == "2":
@@ -45,8 +45,7 @@ def main():
                 if requirements == "5":
                     print_require(length, director, genre, title)
                     break
-                if requirements == "6":
-                    return
+    
             
         #This Prints all things
         if require == "2":
@@ -60,5 +59,8 @@ def main():
                 for i in reader:
                     movies.update({i[0]:i[1]})
                     print(i)
+        
+        if require == "3":
+            break
 
 main()
