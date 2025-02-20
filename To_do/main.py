@@ -23,7 +23,11 @@ def mark():
 
 
 def delete():
-    pass
+    task = input("Would you like to delete entire list or specific tasks. \nPress 1 for entire list \nPress 2 for")
+    if task == "1":
+        with open("To_do\To_Do.txt", "w") as file:
+            writer = csv.writer(file)
+            writer.writerow("")
 
 
 def main():
@@ -34,7 +38,7 @@ def main():
         if job == "2":
             pass
         if job == "3":
-            pass
+            delete()
         if job == "4":
             pass
         if job == "5":
