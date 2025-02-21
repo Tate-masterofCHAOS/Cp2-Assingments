@@ -8,26 +8,37 @@ import csv
 
 def add():
     with open("To_do\To_Do.txt", "a", newline="") as file:
-        writer = csv.writer(file)
-        chore = input("What would you like to add to your to do list")
-        writer.writerow(chore)
+        chore = input("What would you like to add to your to do list: ").lower()
+        file.write(chore)
+        file.write("\n")
     
     with open("To_do\To_Do.txt", "r") as file:
-        reader = csv.reader(file)
         print("Your updated To-Do list is as follow\n")
-        for row in reader:
-            print(f"{row}\n------------------------------")
+        print(file.read())
 
 def mark():
     pass
 
-
 def delete():
-    task = input("Would you like to delete entire list or specific tasks. \nPress 1 for entire list \nPress 2 for")
+    task = input("Would you like to delete entire list or specific tasks. \nPress 1 for entire list \nPress 2 for a specific item \n")
     if task == "1":
         with open("To_do\To_Do.txt", "w") as file:
-            writer = csv.writer(file)
-            writer.writerow("")
+            file.write("")
+            
+    elif task == "2":
+        with open("To_do\To_Do.txt", "w+") as file:
+            chore = input("what is the task you desire to remove: ")
+            file_list = file.read().split("\n")
+            file_list.remove(chore)
+            file.write(str(file_list))
+
+            
+        
+
+def view():
+    with open("To_do\To_Do.txt", "r") as file:
+        print("Your updated To-Do list is as follow\n")
+        print(file.read())
 
 
 def main():
@@ -40,7 +51,7 @@ def main():
         if job == "3":
             delete()
         if job == "4":
-            pass
+            view()
         if job == "5":
             break
 
