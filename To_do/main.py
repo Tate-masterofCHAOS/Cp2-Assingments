@@ -17,7 +17,17 @@ def add():
         print(file.read())
 
 def mark():
-    pass
+    task = input("What would you like to mark off: ")
+    with open("To_do\To_Do.txt", "r") as file: 
+        data = file.readlines() 
+    with open("To_do\To_Do.txt", "w") as file: 
+        for line in data :  
+            if line.strip("\n") != task:  
+                file.write(line) 
+            elif line.strip("\n") == task:
+                file.write(line)
+                file.write("COMPLETE")
+                file.write("\n")
 
 def delete():
     task = input("Would you like to delete entire list or specific tasks. \nPress 1 for entire list \nPress 2 for a specific item \n")
@@ -26,11 +36,13 @@ def delete():
             file.write("")
             
     elif task == "2":
-        with open("To_do\To_Do.txt", "w+") as file:
-            chore = input("what is the task you desire to remove: ")
-            file_list = file.read().split("\n")
-            file_list.remove(chore)
-            file.write(str(file_list))
+        task = input("What would you like to remove: ")
+        with open("To_do\To_Do.txt", "r") as file: 
+            data = file.readlines() 
+        with open("To_do\To_Do.txt", "w") as file: 
+            for line in data :  
+                if line.strip("\n") != task:  
+                    file.write(line) 
 
             
         
@@ -47,7 +59,7 @@ def main():
         if job == "1":
             add()
         if job == "2":
-            pass
+            mark()
         if job == "3":
             delete()
         if job == "4":
