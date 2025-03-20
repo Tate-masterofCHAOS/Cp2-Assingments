@@ -15,12 +15,12 @@ def chara_create():
     df = input("What is the characters defense: ")
     spd = input("What is the characters speed: ")
     characters.append({"Name": chara, "Health": hp, "Strength": str, "Defense": df, "Speed": spd})
-    with open("Cp2-Assingments-main\Battle_simulator\chara.csv", "w", newline="") as file:
+    with open("Battle_system\chara.csv", "w", newline="") as file:
         fieldnames = ["Name", "Health", "Strength", "Defense", "Speed"]
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(characters)
-    with open("Cp2-Assingments-main\Battle_simulator\chara.csv", "r") as file:
+    with open("Battle_system\chara.csv", "r") as file:
         reader = csv.reader(file)
         for row in reader:
             print(f"Name: {row[0]} Health: {row[1]} Strength: {row[2]} Defense: {row[3]} Speed: {row[4]}\n---------------------\n")
@@ -33,24 +33,18 @@ def chara_delete():
             characters.remove(i)
         else:
             continue
-    with open("Cp2-Assingments-main\Battle_simulator\chara.csv", "w", newline="") as file:
+    with open("Battle_system\chara.csv", "w", newline="") as file:
         fieldnames = ["Name", "Health", "Strength", "Defense", "Speed"]
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(characters)
 
 def chara_select():
-    with open("Cp2-Assingments-main\Battle_simulator\chara.csv", "r") as file:
+    with open("Battle_system\chara.csv", "r") as file:
         reader = csv.reader(file)
         for row in reader:
             print(f"Name: {row[0]} Health: {row[1]} Strength: {row[2]} Defense: {row[3]} Speed: {row[4]}\n---------------------\n")
     desision = input("Choose your character: ")
-    with open("Cp2-Assingments-main\Battle_simulator\chara.csv", "r") as file:
-        reader = csv.reader(file)
-        for row in reader:
-            if row[0] == desision:
-                player = [row[0], row[1], row[2], row[3], row[4]]
-                return player
-            else:
-                continue
-    
+    for characters['Name'] in characters:
+        if characters['Name'] == desision:
+            player = dict(characters['Name'], characters['Strength'], characters['Defense'], characters['Speed'])
