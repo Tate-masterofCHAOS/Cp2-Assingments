@@ -1,10 +1,10 @@
 import csv
 
 characters = [
-    {"Name": "Dipper Pines", "Health": "5", "Strength": "5", "Defense": "5", "Speed": "5"},
-    {"Name": "Mable Pines", "Health": "5", "Strength": "5", "Defense": "5", "Speed": "5"},
-    {"Name": "Anne Boonchuy", "Health": "5", "Strength": "5", "Defense": "5", "Speed": "5"},
-    {"Name": "Luz Noceda", "Health": "5", "Strength": "5", "Defense": "5", "Speed": "5"},
+    {"Name": "Dipper Pines", "Health": 5, "Strength": 5, "Defense": 5, "Speed": 5},
+    {"Name": "Mable Pines", "Health": 5, "Strength": 5, "Defense": 5, "Speed": 5},
+    {"Name": "Anne Boonchuy", "Health": 5, "Strength": 5, "Defense": 5, "Speed": 5},
+    {"Name": "Luz Noceda", "Health": 5, "Strength": 5, "Defense": 5, "Speed": 5},
 ]
 
 
@@ -45,6 +45,11 @@ def chara_select():
         for row in reader:
             print(f"Name: {row[0]} Health: {row[1]} Strength: {row[2]} Defense: {row[3]} Speed: {row[4]}\n---------------------\n")
     desision = input("Choose your character: ")
-    for characters['Name'] in characters:
-        if characters['Name'] == desision:
-            player = dict(characters['Name'], characters['Strength'], characters['Defense'], characters['Speed'])
+    with open("Battle_system\chara.csv", "r") as file:
+        reader = csv.reader(file)
+        for row in reader:
+            if row[0] == desision:
+                player = {"Name": row[0], "Health": row[1], "Strength": row[2], "Defense": row[3], "Speed": row[4]}
+                return player
+            else:
+                continue

@@ -21,7 +21,7 @@ def main():
             chara_delete()
         elif profile == "4":
             break
-    print(f"You Have selected {player['Name']} Health {player['Health']}, Strength {player['Strength']}, Defense {player['Defense']}, Speed {player['Speed']}")
+    print(player)
     begin = input("Will you continue. \npress 1 for yes or 2 for no: ")
     if begin == "1":
         battle(player)
