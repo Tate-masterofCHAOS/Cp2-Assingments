@@ -40,12 +40,12 @@ def chara_delete():
         writer.writerows(characters)
 
 def chara_select():
-    with open("Battle_system\chara.csv", "r") as file:
+    with open("Battle_system/chara.csv", "r") as file:
         reader = csv.reader(file)
         for row in reader:
             print(f"Name: {row[0]} Health: {row[1]} Strength: {row[2]} Defense: {row[3]} Speed: {row[4]}\n---------------------\n")
     desision = input("Choose your character: ")
-    with open("Battle_system\chara.csv", "r") as file:
+    with open("Battle_system/chara.csv", "r") as file:
         reader = csv.reader(file)
         for row in reader:
             if row[0] == desision:
