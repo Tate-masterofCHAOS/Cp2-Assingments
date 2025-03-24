@@ -1,5 +1,6 @@
-Name,Health,Strength,Defense,Speed
-Dipper Pines,30,5,5,5
-Mable Pines,30,5,5,5
-Anne Boonchuy,30,5,5,5
-Luz Noceda,30,5,5,5
+Name,Health,Strength,Defense,Speed,Level
+Dipper Pines,30,5,5,5,1
+Mable Pines,30,5,5,5,1
+Anne Boonchuy,30,5,5,5,1
+Luz Noceda,30,5,5,5,1
+Tate Morgan,30,30,5,5,1

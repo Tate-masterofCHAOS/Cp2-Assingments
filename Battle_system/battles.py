@@ -1,5 +1,7 @@
 import random
 import time
+from character_handling import chara_update, characters
+
 
 player = ""
 
@@ -13,7 +15,7 @@ enemies = [
     {"Name": "Hooty", "Health": 30, "Strength": 5, "Defense": 5, "Speed": 5, "Description": "A giant tube-like owl with no care for others privacy"}
 ]
 
-def heroes_turn(player, enemy):
+def heroes_turn(player, enemy, ran):
     player_turn = input(print("Press numbers corresponding to the action you wish to use \n1: Attack \n2: Act \n3: Item \n4: Run \n"))
     if player_turn == "1":
         enemy['Health'] = enemy['Health'] - int(player['Strength'])
@@ -21,8 +23,7 @@ def heroes_turn(player, enemy):
             print(f"{enemy['Name']} is at {enemy['Health']}")
         elif enemy['Health'] <= 0:
             print(f"You beat {enemy['Name']}")
-            encounter = False
-        return enemy
+        return enemy, 
     
     elif player_turn == "2":
         player_action = input(print("Press numbers corresponding to the action you wish to use \n1: Check \n2: Talk \n3: Back \n"))
@@ -34,23 +35,23 @@ def heroes_turn(player, enemy):
             heroes_turn(player, enemy)
 
     elif player_turn == "3":
-        player_use = input(print("Press numbers corresponding to the action you wish to use \n1: Cookie \n2: Snack \n3: Cake \n 4: Return"))
+        player_use = input(print("Press numbers corresponding to the action you wish to use \n1: Cookie \n2: Snack \n3: Cake \n4: Return"))
         if player_use == "1":
             if int(player['Health']) <= 25:
-                int(player['Health']) + 5
+                player['Health'] = int(player['Health']) + 5
                 print("5 HP restored")
             elif int(player['Health']) >= 25:
-                int(player['Health']) = 30
+                int(player['Health']) == 30
                 print("HP fully restored")
         if player_use == "2":
             if int(player['Health']) <= 20:
-                int(player['Health']) + 10
-                print("5 HP restored")
+                player['Health'] = int(player['Health']) + 10
+                print("10 HP restored")
             elif int(player['Health']) >= 20:
-                int(player['Health']) = 30
+                int(player['Health']) == 30
                 print("HP fully restored")
         if player_use == "3":
-            int(player['Health']) = 30
+            int(player['Health']) == 30
             print("HP fully restored")
         if player_use == "4":
             heroes_turn(player, enemy)
@@ -58,10 +59,13 @@ def heroes_turn(player, enemy):
     elif player_turn == "4":
         run = random.int(1,10)
         if run == 1:
-            encounter = False
+            ran = True
             print("You succesfully got away")
+            return ran
         elif run != 1:
+            ran = False
             print("You could not get away")
+            return ran
 
 def enemies_turn(player, enemy):
     print(f"{enemy['Name']} {random.choice(enemy_dialogue)}")
@@ -70,17 +74,28 @@ def enemies_turn(player, enemy):
     return player
 
 def battle(player):
-    encounter = True
+    ran = False
     enemy = dict(random.choice(enemies))
     print(f"You have encountered {enemy['Name']}")
     while True:
-        if encounter == True:
-            heroes_turn(player, enemy)
+        if int(enemy['Health']) > 0 and ran == False:
+            heroes_turn(player, enemy, ran)
             time.sleep(3)
+        if int(enemy['Health']) > 0 and ran == False:
             enemies_turn(player, enemy)
-            time.sleep(3)
-        elif encounter == False:
+        if int(enemy['Health']) <= 0 or ran == True:
+            player['Level'] = int(player['Level']) + 1
+            print(f"You leveled up. you are now Level {player['Level']}")
+            journy = input('Press numbers corresponding to what you wish to do \n1. Continue your journy, \n2. Change characters \n3. Save and quit\n')
+            if journy == "2":
+                chara_update(player, characters)
+                break
             break
+        break
+    
+                
+            
+    
          
     
 

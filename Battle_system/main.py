@@ -27,6 +27,7 @@ def main():
         battle(player)
     elif begin == "2":
         main()
+    main()
 
 
 
