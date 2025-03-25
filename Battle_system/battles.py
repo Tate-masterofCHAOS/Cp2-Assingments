@@ -87,9 +87,13 @@ def battle(player):
             player['Level'] = int(player['Level']) + 1
             print(f"You leveled up. you are now Level {player['Level']}")
             journy = input('Press numbers corresponding to what you wish to do \n1. Continue your journy, \n2. Change characters \n3. Save and quit\n')
-            if journy == "2":
+            if journy == "1":
+                battle(player)
+            elif journy == "2":
                 chara_update(player, characters)
                 break
+            elif journy== "3":
+                quit()
             break
         break
     

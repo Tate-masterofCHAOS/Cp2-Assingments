@@ -1,4 +1,6 @@
 import csv
+from tempfile import NamedTemporaryFile
+import shutil
 
 characters = [
     {"Name": "Dipper Pines", "Health": 30, "Strength": 5, "Defense": 5, "Speed": 5, "Level": 1},
@@ -11,24 +13,22 @@ characters = [
 
 
 def chara_update(player,characters):
-    with open("Battle_system/chara.csv", "w+", newline="") as file:
-        fieldnames = ["Name", "Health", "Strength", "Defense", "Speed", "Level"]
-        reader = csv.reader(file)
+    filename = 'Battle_system/chara.csv'
+    tempfile = NamedTemporaryFile(mode='w', delete=False)
+
+    fields = ['Name', 'Health', 'Strength', 'Defense', 'Speed', 'Level']
+
+    with open(filename, 'r') as csvfile, tempfile:
+        reader = csv.DictReader(csvfile, fieldnames=fields)
+        writer = csv.DictWriter(tempfile, fieldnames=fields)
         for row in reader:
-            if row[0] == player[0]:
-                row[1,2,3,4,5] = player[1,2,3,4,5]
-                file.write(row)
-            else:
-                file.write(row)
-    with open("Battle_system/chara.csv", "r") as file:
-        reader = csv.reader(file)
-        for row in file:
-            if row == 1:
-                pass
-            elif row == 2:
-                characters = [{"Name": row[0], "Health": row[1], "Strength": row[2], "Defense": row[3], "Speed": row[4], "Level": 1}]
-            else:
-                characters.insert(player = {"Name": row[0], "Health": row[1], "Strength": row[2], "Defense": row[3], "Speed": row[4], "Level": 1})
+            if row['Name'] == player['Name']:
+                row['Name'], row['Health'], row['Strength'], row['Defense'], row['Speed'], row['Level'] = player['Name'], player['Health'], player['Strength'], player['Defense'], player['Speed'], player['Level']
+            row = {'Name': row['Name'], 'Health': row['Health'], 'Strength': row['Strength'], 'Defense': row['Defense'], 'Speed': row['Speed'], 'Level': row['Level']}
+            writer.writerow(row)
+
+    shutil.move(tempfile.name, filename)
+
             
 
 def chara_create():
