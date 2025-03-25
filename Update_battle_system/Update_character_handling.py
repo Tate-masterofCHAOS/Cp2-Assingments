@@ -3,16 +3,17 @@ from tempfile import NamedTemporaryFile
 import shutil
 
 characters = [
-    {"Name": "Dipper Pines", "Health": 30, "Strength": 5, "Defense": 5, "Speed": 5, "Level": 1},
-    {"Name": "Mable Pines", "Health": 30, "Strength": 5, "Defense": 5, "Speed": 5, "Level": 1},
-    {"Name": "Anne Boonchuy", "Health": 30, "Strength": 5, "Defense": 5, "Speed": 5, "Level": 1},
-    {"Name": "Luz Noceda", "Health": 30, "Strength": 5, "Defense": 5, "Speed": 5, "Level": 1},
-    {"Name": "Tate Morgan", "Health": 30, "Strength": 30, "Defense": 5, "Speed": 5, "Level": 1}
+    {"Name": "Dipper Pines", "Health": 60, "Strength": 25, "Defense": 65, "Speed": 80, "Level": 1},
+    {"Name": "Mable Pines", "Health": 100, "Strength": 15, "Defense": 60, "Speed": 120, "Level": 1},
+    {"Name": "Anne Boonchuy", "Health": 110, "Strength": 102, "Defense": 55, "Speed": 85, "Level": 1},
+    {"Name": "Luz Noceda", "Health": 150, "Strength": 30, "Defense": 120, "Speed": 15, "Level": 1},
+    {"Name": "Tate Morgan", "Health": 1500, "Strength": 1500, "Defense": 1500, "Speed": 1500, "Level": 1}
 ]
 
 
+
 def chara_update(player,characters):
-    filename = 'Battle_system/chara.csv'
+    filename = 'Update_battle_system/Update_chara.csv'
     tempfile = NamedTemporaryFile(mode='w', delete=False)
 
     fields = ['Name', 'Health', 'Strength', 'Defense', 'Speed', 'Level']
@@ -37,7 +38,7 @@ def chara_create():
     df = input("What is the characters defense: ")
     spd = input("What is the characters speed: ")
     characters.append({"Name": chara, "Health": hp, "Strength": str, "Defense": df, "Speed": spd, "Level": 1})
-    with open("Battle_system\chara.csv", "w", newline="") as file:
+    with open("Update_battle_system/Update_chara.csv", "w", newline="") as file:
         fieldnames = ["Name", "Health", "Strength", "Defense", "Speed", "Level"]
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writeheader()
@@ -51,19 +52,19 @@ def chara_delete():
             characters.remove(i)
         else:
             continue
-    with open("Battle_system\chara.csv", "w", newline="") as file:
+    with open("Update_battle_system/Update_chara.csv", "w", newline="") as file:
         fieldnames = ["Name", "Health", "Strength", "Defense", "Speed", "Level"]
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(characters)
 
 def chara_select():
-    with open("Battle_system/chara.csv", "r") as file:
+    with open("Update_battle_system/Update_chara.csv", "r") as file:
         reader = csv.reader(file)
         for row in reader:
             print(f"Name: {row[0]} Health: {row[1]} Strength: {row[2]} Defense: {row[3]} Speed: {row[4]} Level {row[5]}\n---------------------\n")
     desision = input("Choose your character: ")
-    with open("Battle_system/chara.csv", "r") as file:
+    with open("Update_battle_system/Update_chara.csv", "r") as file:
         reader = csv.reader(file)
         for row in reader:
             if row[0] == desision:
