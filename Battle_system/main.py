@@ -1,7 +1,7 @@
 #Tate Morgan Battle Simulator
 
 import csv
-from character_handling import chara_create, chara_delete, chara_select
+from character_handling import chara_manage
 from battles import battle
 
 
@@ -11,18 +11,7 @@ from battles import battle
 
 
 def main():
-    while True:
-        profile = input("Press 1 to use load a character, press 2 to create one, press 3 to delete one, or 4 to leave game: ")
-        if profile == "1":
-            player = chara_select()
-            print(player)
-            break
-        elif profile == "2":
-            chara_create()
-        elif profile == "3":
-            chara_delete()
-        elif profile == "4":
-            break
+    player = chara_manage()
     begin = input("Will you continue. \npress 1 for yes or 2 for no: ")
     if begin == "1":
         battle(player)
