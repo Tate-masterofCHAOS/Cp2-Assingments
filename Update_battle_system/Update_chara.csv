@@ -1,6 +1,6 @@
-Name,Health,Strength,Defense,Speed,Level
-Dipper Pines,60,25,65,80,1
-Mable Pines,100,15,60,120,1
-Anne Boonchuy,110,102,55,85,1
-Luz Noceda,150,30,120,15,1
-Tate Morgan,1500,1500,1500,119,1
+Name,Health,Strength,Defense,Speed,Level,Description
+Dipper Pines,60,25,65,80,1,A young boy who loves mystery
+Mable Pines,100,15,60,120,1,A young girl who loves being weird
+Anne Boonchuy,110,102,55,85,1,A teenage girl stuck in a world of frogs, newts, and toads
+Luz Noceda,150,30,120,15,1,A teenage girl stuck in a world of demons and magic trying to become a witch
+Tate Morgan,1500,1500,1500,119,1,Dev character purposefully unbeatable
