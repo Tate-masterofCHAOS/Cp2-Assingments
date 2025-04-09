@@ -1,6 +1,6 @@
 #Tate K. Morgan, Coin change problem
 
-\
+
 from coin_change_manager import coin_change_main as coin_change
 
 def main():
