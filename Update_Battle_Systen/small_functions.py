@@ -53,14 +53,14 @@ def is_in_list(list, value):
 
 def load_profiles():
 
-    profiles = pd.read_csv('battle_simulator/character_info.csv')
+    profiles = pd.read_csv('Update_Battle_Systen/character_info.csv')
     return profiles.to_dict()
 
 
 
 def save_profiles(profiles):
     profiles = pd.DataFrame(profiles)
-    profiles.to_csv('battle_simulator/character_info.csv', index=False)
+    profiles.to_csv('Update_Battle_Systen/character_info.csv', index=False)
 
 
 

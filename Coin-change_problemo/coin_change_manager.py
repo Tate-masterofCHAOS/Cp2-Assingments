@@ -2,7 +2,7 @@ import csv
 
 
 def coin_change_main():
-    with open('coin_problem/currencies.csv', newline='', encoding="utf-8") as file:
+    with open('Coin-change_problemo/currencies.csv', newline='', encoding="utf-8") as file:
         reader = csv.reader(file)
         rows = list(reader)  
 

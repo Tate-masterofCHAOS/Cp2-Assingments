@@ -98,11 +98,19 @@ def combat(p1, p2):
 
     if p1["health"] < 0:
         commentary += '\nPlayer 2 wins'
-        return 2, commentary
+        fin = input(f"{commentary} would you like to continue 1 for yes 2 for no\n")
+        if fin == 1:
+            main()
+        elif fin == 2:
+            return 2, commentary
     
     else:
         commentary += '\nPlayer 1 wins'
-        return 1, commentary
+        fin = input(f"{commentary} would you like to continue 1 for yes 2 for no\n")
+        if fin == 1:
+            main()
+        elif fin == 2:
+            return 1, commentary
 
 
 
