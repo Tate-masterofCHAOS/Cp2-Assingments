@@ -13,7 +13,7 @@ first = subject("Math", 1, "Miller")
 second = subject("World Civ", 2, "Macinanti")
 
 #print(first.content)
-#print(second.content)
+print(second.content)
 
 
 
@@ -45,10 +45,9 @@ class pokemon:
 fluffy = pokemon("Fluffy", "Arcananine", 280, 110)
 slimy = pokemon("Slimy", "Ditto", 100, 70)
 spiky = pokemon("Slimy", "joltean", 150, 100)
+print(spiky)
 
-
-fluffy.battle(spiky)
-            
+#fluffy.battle(spiky)
 
 #What is a class in python
     #A blueprint for an object
