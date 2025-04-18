@@ -212,34 +212,38 @@ class pet:
 
 
 
-def pet_selection():
+def pet_choice():
     with open('Pet_simulator/koro.csv', 'r') as file:
         reader = csv.reader
         for row in file:
             if row[0] != 'name':
                 print(row)
+            else: 
+                continue
+        choice = input('Please put the name of the koro you would like to use this is case specific: ')
+        return choice
+
+def pet_selection(choice):
+    with open('Pet_simulator/koro.csv', 'r') as file:
+        for row in file:
+            if choice == row[0]:
+                name = row[0]
+                shade = row[1]
+                time_alive = row[2]
+                hunger = row[3]
+                happiness = row[4]
+                energy = row[5]
+                max_hunger = row[6]
+                max_happiness = row[7]
+                max_energy = row[8]
+                status = row[9]
+                return pet(name,shade,time_alive,hunger,happiness,energy,max_hunger,max_happiness,max_energy,status)
             else:
                 continue
-        choice = input('Please put the name of the koro you would like to use this is case specific')
-        if choice in file:
-            for row in file:
-                if row[0] == choice:
-                    current_koro = pet(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9])
-                    return current_koro
-                else:
-                    continue
-        elif choice not in file:
-            choice = input('Sorry that one does not exist press 1 to return and 2 to create one')
-            if choice == '1':
-                pet_selection()
-            elif choice == '2':
-                current_koro = pet_creation()
-                return current_koro
-
-
+         
 def pet_creation():
-    name = input('What is his name')
-    shade = input('Please choose a shade from the following options and type the corrseponding number \n1. normal')
+    name = input('What is his name: ')
+    shade = input('Please choose a shade from the following options and type the corrseponding number \n1. normal \n2. X faced(wip) \n3. O face(wip) \n')
     time_alive = 0
     status = 'content'
     if shade == '1':
@@ -249,6 +253,8 @@ def pet_creation():
         max_happiness = 150
         energy = 150
         max_energy = 150
-    current_koro = pet(name,shade,time_alive,hunger,happiness,energy,max_hunger,max_happiness,max_energy,status)
-    return current_koro
-        
+
+    with open('Pet_simulator/koro.csv', 'a',newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow([name,shade,time_alive,hunger,happiness,energy,max_hunger,max_happiness,max_energy,status])
+    return pet(name,shade,time_alive,hunger,happiness,energy,max_hunger,max_happiness,max_energy,status)
