@@ -1,4 +1,9 @@
-pet_sprits = {'pet_idle_normal':  """⠀⢆⡐⢄⢂⡐⠠⡀⠄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣦⠀⠀⡀⠄⢠⠐⡠⢂⠔⡠⠒⣄⠲⡐⢎⡔⡒⡒⢦⡑⢆⠳⣌
+import time
+import csv
+
+
+
+pet_sprites = {'pet_idle_normal':  """⠀⢆⡐⢄⢂⡐⠠⡀⠄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣦⠀⠀⡀⠄⢠⠐⡠⢂⠔⡠⠒⣄⠲⡐⢎⡔⡒⡒⢦⡑⢆⠳⣌
 ⢈⠆⡌⢢⠐⠤⠑⡠⠒⠠⢁⠂⠄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣄⣀⠀⠙⣧⠀⠐⡌⢠⠃⡔⢡⠊⡔⢡⠢⢥⢙⠢⡜⣡⠙⡴⡘⣌⠳⡌
 ⢀⠎⠤⠡⢌⢂⠱⢠⢁⠣⠐⣈⠐⡀⢂⠐⡀⠀⠀⠀⣀⣤⣶⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣷⡘⢧⠀⡈⠐⢌⡰⢁⠎⢬⠑⣊⠦⣉⠖⡱⢢⡙⠴⡱⢌⡣⢜
 ⠈⡜⠰⡁⠎⡄⢃⠆⢢⢁⠣⣀⠣⠐⢂⠐⢀⣠⣶⣿⣿⣿⣿⣿⣿⣿⣶⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⠟⣫⣿⣿⣿⣷⠘⣷⣭⡱⣦⣀⠩⢘⢢⡙⢤⠓⣌⢎⡱⢣⠜⣣⠱⣊⠕⣎
@@ -168,7 +173,7 @@ pet_sprits = {'pet_idle_normal':  """⠀⢆⡐⢄⢂⡐⠠⡀⠄⡀⠀⠀⠀⠀�
 
 
 class pet:
-    def __init__(name, shade, time_alive, hunger, happiness, energy, max_hunger, max_happiness, max_energy):
+    def __init__(self, name, shade, time_alive, hunger, happiness, energy, max_hunger, max_happiness, max_energy, status):
         self.name = name
         self.shade = shade
         self.time_alive = time_alive
@@ -178,13 +183,35 @@ class pet:
         self.max_hunger = max_hunger
         self.max_happiness = max_happiness
         self.max_energy = max_energy
+        self.status = status
 
     def __str__(self):
         return f'{self.name} is a {self.shade}\nmax hunger: {self.max_hunger} \nMax happiness: {self.max_happiness} \nMax energy: {self.max_energy}'
     
+    def feed(self):
+        print(pet_sprites['pet_hungry'])
+        print(f'{self.name} is having a little snack on some metal pipe he found')
+        time.sleep(5)
+        print('50 hunger restored')
+    
+    def sleep(self):
+        print(pet_sprites['pet_sleepy'])
+        print(f'{self.name} is having a little nap')
+        time.sleep(5)
+        print('50 energy restored')
+
+    def play(self):
+        print(pet_sprites['pet_play'])
+        print(f'You chase after {self.name} with a knife for a bit')
+        time.sleep(5)
+        print('50 energy restored')
 
     def stat_check(self):
-        print(f"_______________________________________________________________________________________________________________________________________________________________\nStats for {self.name} \n")
+        print(f"__________________________________________________________________________________________________________________________________________________\nStats for {self.name} \nShade: {self.shade} \nTime Alive: {self.time_alive} \nHappiness: {self.happiness}/{self.max_happiness} \nHunger: {self.hunger}/{self.max_hunger} \nEnergy: {self.energy}/{self.max_energy} \nStatus: {self.status}")
 
 
-print(pet_sprits['pet_idle_normal'])
+
+
+def pet_selection():
+    with open('Pet_simulator/koro.csv', 'r') as file:
+        reader = csv.reader
