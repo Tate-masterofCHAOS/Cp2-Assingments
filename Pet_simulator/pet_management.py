@@ -215,3 +215,39 @@ class pet:
 def pet_selection():
     with open('Pet_simulator/koro.csv', 'r') as file:
         reader = csv.reader
+        for row in file:
+            if row[0] != 'name':
+                print(row)
+            else:
+                continue
+        choice = input('Please put the name of the koro you would like to use this is case specific')
+        if choice in file:
+            for row in file:
+                if row[0] == choice:
+                    current_koro = pet(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9])
+                    return current_koro
+                else:
+                    continue
+        elif choice not in file:
+            choice = input('Sorry that one does not exist press 1 to return and 2 to create one')
+            if choice == '1':
+                pet_selection()
+            elif choice == '2':
+                current_koro = pet_creation()
+                return current_koro
+
+
+def pet_creation():
+    name = input('What is his name')
+    shade = input('Please choose a shade from the following options and type the corrseponding number \n1. normal')
+    time_alive = 0
+    if shade == '1':
+        hunger = 150
+        max_hunger = 150
+        happiness = 150
+        max_happiness = 150
+        energy = 150
+        max_energy = 150
+    current_koro = pet(name,shade,time_alive,hunger,max_happiness,energy,max_energy)
+    return current_koro
+        
