@@ -1,6 +1,6 @@
 #Main Menu for game
 from pet_management import pet, pet_sprits
-import csv
+from account_handling import account_handling
 
 
     
@@ -15,7 +15,7 @@ user = {"": ""}
 
 
 def main():
-    pass
+    print('Welcome to The Koro-Sensie pet lab where we biologically engineer each and every korosensei ready to be taken care of')
     
         
 
