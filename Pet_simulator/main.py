@@ -17,6 +17,7 @@ def main():
     current_koro = pet_selection()
     if current_koro.shade == '1':
         print(pet_sprites['pet_idle_normal'])
+        print(f'\n{current_koro.name} comes running over at your call')
     
     
         

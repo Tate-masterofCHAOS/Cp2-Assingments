@@ -241,6 +241,7 @@ def pet_creation():
     name = input('What is his name')
     shade = input('Please choose a shade from the following options and type the corrseponding number \n1. normal')
     time_alive = 0
+    status = 'content'
     if shade == '1':
         hunger = 150
         max_hunger = 150
@@ -248,6 +249,6 @@ def pet_creation():
         max_happiness = 150
         energy = 150
         max_energy = 150
-    current_koro = pet(name,shade,time_alive,hunger,max_happiness,energy,max_energy)
+    current_koro = pet(name,shade,time_alive,hunger,happiness,energy,max_hunger,max_happiness,max_energy,status)
     return current_koro
         
