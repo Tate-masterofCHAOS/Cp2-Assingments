@@ -1,7 +1,8 @@
 #Main Menu for game
-from pet_management import *
+from pet_management import pet, pet_selection, pet_creation, stat_update, pet_sprites
 from time import sleep
 from threading import Timer
+import random
 
 class RepeatedTimer(object):
     def __init__(self, interval, function, *args, **kwargs):
@@ -47,13 +48,13 @@ def main():
     elif current_koro.shade == 'O faced':
         print(pet_sprites['pet_idle_o'])
     print(f'\n{current_koro.name} comes running over at your call')
+    rt = RepeatedTimer(random.randint(30,120), stat_update(current_koro)) # it auto-starts, no need of rt.start()
+    try:
+        print(stat_update(current_koro))
+    finally:
+        rt.stop()
     while True:
-        rt = RepeatedTimer(random.randint(30,120), stat_update(current_koro)) # it auto-starts, no need of rt.start()
-        try:
-            stat_update(current_koro)
-        finally:
-            rt.stop()
-            choice = input('What would you like to do? \n1: Feed, \n2: Play, \n3: Sleep, \n4: Check Status, \n5. Change pet, \n6. Quit \n')
+            choice = int(input('What would you like to do? \n1: Feed, \n2: Play, \n3: Sleep, \n4: Check Status, \n5. Change pet, \n6. Quit \n'))
             if choice == 1:
                 pass
             elif choice == 2:
@@ -61,7 +62,7 @@ def main():
             elif choice == 3:
                 pass
             elif choice == 4:
-                current_koro.stat_check()
+                print(current_koro.stat_check())
             elif choice == 5:
                 print('You have chosen to change your pet')
                 current_koro = pet_selection()

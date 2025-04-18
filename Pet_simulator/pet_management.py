@@ -276,7 +276,7 @@ class pet:
         print('50 energy restored')
 
     def stat_check(self):
-        print(f"__________________________________________________________________________________________________________________________________________________\nStats for {self.name} \nShade: {self.shade} \nTime Alive: {self.time_alive} \nHappiness: {self.happiness}/{self.max_happiness} \nHunger: {self.hunger}/{self.max_hunger} \nEnergy: {self.energy}/{self.max_energy} \nStatus: {self.status}")
+        return f"__________________________________________________________________________________________________________________________________________________\nStats for {self.name} \nShade: {self.shade} \nTime Alive: {self.time_alive} \nHappiness: {self.happiness}/{self.max_happiness} \nHunger: {self.hunger}/{self.max_hunger} \nEnergy: {self.energy}/{self.max_energy} \nStatus: {self.status}"
 
 
 
