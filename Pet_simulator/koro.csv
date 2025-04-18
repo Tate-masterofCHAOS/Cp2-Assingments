@@ -1,2 +1,2 @@
 name,shade,time_alive,hunger,happiness,energy,max_hunger,max_happiness,max_energy,status
-Hasan,1,0,150,150,150,150,150,150,content
+Hasan,normal,0,150,150,150,150,150,150,content
