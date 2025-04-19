@@ -32,6 +32,8 @@ def main():
                 print('Hello Mrs. Larose you have made a grave error choosing this pet, this will last around 3-5 seconds when it stops I recommend you choose another pet')
                 time.sleep(5)
                 rick()
+            elif current_koro.shade == 'I am not a pet, I am a god(striped)':
+                print(pet_sprites['pet_idle_stripe'])
             print(f'\n{current_koro.name} comes running over at your call')
             choice = int(input('What would you like to do? \n1: Feed, \n2: Play, \n3: Sleep, \n4: Check Status, \n5. Change pet, \n6. Fly(Requires level 2) \n7. Melt(Requires level 5) \n8. Quit \n'))
             if choice == 1:
