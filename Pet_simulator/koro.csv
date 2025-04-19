@@ -1,2 +1,5 @@
 name,shade,time_alive,hunger,happiness,energy,max_hunger,max_happiness,max_energy,status
 Hasan,normal,0,150,150,150,150,150,150,content
+Krillin,X faced,0,100,100,100,100,100,100,content
+Chara,O faced,0,200,200,200,200,200,200,content
+Rick,Rick,0,5000000000000,50000000000,500000000000,5000000000000,5000000000000,500000000000,content
