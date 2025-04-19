@@ -725,21 +725,21 @@ def random_events(current_koro):
 
 
 
-def fly():
+def fly(current_koro):
     print(pet_sprites['fly'])
     time.sleep(2)
-    print('You fly around the room for a bit')
+    print(f'{current_koro.name} fly around the room for a bit')
     time.sleep(2)
-    print('You land back down')
+    print(f'{current_koro.name} land back down')
     time.sleep(2)
 
 
-def melt():
+def melt(current_koro):
     print(pet_sprites['melt'])
     time.sleep(2)
-    print('You melt into a puddle of goo')
+    print(f'{current_koro.name} melt into a puddle of goo')
     time.sleep(2)
-    print('You are now a puddle of goo')
+    print(f'{current_koro.name} are now a puddle of goo')
     time.sleep(2)
-    print('You return to normal')
+    print(f'{current_koro.name} return to normal')
     time.sleep

@@ -50,13 +50,13 @@ def main():
                 print(current_koro)
             elif choice == 6:
                 if current_koro.level >= 2:
-                    fly()
+                    fly(current_koro)
                 else:
                     print('Your pet is not leveled up enough to fly')
                     time.sleep(2)
             elif choice == 7:
                 if current_koro.level >= 5:
-                    melt()
+                    melt(current_koro)
                 else:
                     print('Your pet is not leveled up enough to melt')
                     time.sleep(2)
@@ -67,7 +67,7 @@ def main():
         elif Event_timer.is_alive() == False and Stat_timer.is_alive() == False:
             Event_timer = threading.timer(random.randint(60,180), random_events, args=(current_koro,)).start()
             Stat_timer = threading.timer(random.randint(60,120), stat_update, args=(current_koro,)).start()
-        elif Event_timer.is_alive(Event_timer) == False:
+        elif Event_timer.is_alive() == False:
             Event_timer = threading.timer(random.randint(60,180), random_events, args=(current_koro,)).start()
         elif Stat_timer.is_alive() == False:
             Stat_timer = threading.timer(random.randint(60,120), stat_update, args=(current_koro,)).start()
