@@ -9,78 +9,18 @@ from rick import rick
 
 def main():
     temp = 0
-    print('Welcome to The Koro-Sensie pet lab where we biologically engineer each and every korosensei ready to be taken care of by you!\n')
-    choice = input('Would you like to create a new pet or load an existing one? (1/2) ').lower()
-    if choice == '1':
-        current_koro = pet_creation()
-    elif choice == '2':
-        current_koro = pet_selection()
-        print(current_koro)
-    else:
-        print('Invalid choice, please try again.')
-        main()
-    stat_update(current_koro)
-    random_events(current_koro)
     while True:
-        if current_koro.hunger == 0 or current_koro.energy == 0 or current_koro.happiness == 0:
-            current_koro.status = 'dead'
-            print(f'{current_koro.name} has died')
-            save_pet(current_koro)
-            main()
+        print('Welcome to The Koro-Sensie pet lab where we biologically engineer each and every korosensei ready to be taken care of by you!\n')
+        choice = input('Would you like to create a new pet or load an existing one? (1/2) ').lower()
+        if choice == '1':
+            current_koro = pet_creation()
+        elif choice == '2':
+            current_koro = pet_selection()
+            print(current_koro)
         else:
-            print(f'\n{current_koro.name} is currently {current_koro.status}')
-            if current_koro.shade == 'normal':
-                print(pet_sprites['pet_idle_normal'])
-            elif current_koro.shade == 'X faced':
-                print(pet_sprites['pet_idle_X'])
-            elif current_koro.shade == 'O faced':
-                print(pet_sprites['pet_idle_O'])
-            elif current_koro.shade == 'Rick':
-                print('Hello Mrs. Larose you have made a grave error choosing this pet, this will last around 3-5 seconds when it stops I recommend you choose another pet')
-                time.sleep(5)
-                rick()
-            elif current_koro.shade == 'I am not a pet, I am a god(striped)':
-                print(pet_sprites['pet_idle_stripe'])
-            elif current_koro.shade == 'Project UCAS':
-                print(pet_sprites['pet_idle_project_UCAS'])
-            print(f'\n{current_koro.name} comes running over at your call')
-            choice = int(input('What would you like to do? \n1: Feed, \n2: Play, \n3: Sleep, \n4: Check Status, \n5. Change pet, \n6. Fly(Requires level 2) \n7. Melt(Requires level 5) \n8. Quit \n'))
-            if choice == 1:
-                current_koro.feed()
-            elif choice == 2:
-                current_koro.play()
-            elif choice == 3:
-                current_koro.sleep()
-            elif choice == 4:
-                print(current_koro.stat_check())
-            elif choice == 5:
-                print('You have chosen to change your pet')
-                current_koro = pet_selection()
-                print(current_koro)
-            elif choice == 6:
-                if current_koro.level >= 2:
-                    fly(current_koro)
-                else:
-                    print('Your pet is not leveled up enough to fly')
-                    time.sleep(2)
-            elif choice == 7:
-                if current_koro.level >= 5:
-                    melt(current_koro)
-                else:
-                    print('Your pet is not leveled up enough to melt')
-                    time.sleep(2)
-            elif choice == 8:
-                print('Thanks for playing!')
-                save_pet(current_koro)
-                quit()
-            else:
-                print('Invalid choice, please try again.')
-                continue
-            while current_koro.time_alive >= 3:
-                print('Your pet has leveled up!')
-                current_koro.level += 1
-                temp += current_koro.time_alive
-                current_koro.time_alive -= 3
+            print('Invalid choice, please try again.')
+            main()
+        home(current_koro)
             
     
         
