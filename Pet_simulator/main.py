@@ -3,7 +3,7 @@ from pet_management import *
 from time import sleep
 import threading
 import random
-from rick import rick
+
 
 
 

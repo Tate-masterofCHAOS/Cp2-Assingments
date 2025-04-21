@@ -2,7 +2,7 @@ import time
 import csv
 import random
 import threading
-
+from rick import rick as rick
 
 
 pet_sprites = {'pet_idle_normal':  """⠀⢆⡐⢄⢂⡐⠠⡀⠄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣦⠀⠀⡀⠄⢠⠐⡠⢂⠔⡠⠒⣄⠲⡐⢎⡔⡒⡒⢦⡑⢆⠳⣌
