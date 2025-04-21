@@ -599,6 +599,9 @@ def pet_selection():
             return pet_selection()
         elif choice == '2':
             return pet_creation()
+        else:
+            print('Sorry, that is not a valid option')
+            return pet_selection()
          
 def pet_creation():
     name = input('What is his name: ')
@@ -745,4 +748,4 @@ def melt(current_koro):
     print(f'{current_koro.name} are now a puddle of goo')
     time.sleep(2)
     print(f'{current_koro.name} return to normal')
-    time.sleep
+    time.sleep(2)
