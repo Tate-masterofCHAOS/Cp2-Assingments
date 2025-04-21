@@ -41,6 +41,8 @@ def main():
                 rick()
             elif current_koro.shade == 'I am not a pet, I am a god(striped)':
                 print(pet_sprites['pet_idle_stripe'])
+            elif current_koro.shade == 'Project UCAS':
+                print(pet_sprites['pet_idle_project_UCAS'])
             print(f'\n{current_koro.name} comes running over at your call')
             choice = int(input('What would you like to do? \n1: Feed, \n2: Play, \n3: Sleep, \n4: Check Status, \n5. Change pet, \n6. Fly(Requires level 2) \n7. Melt(Requires level 5) \n8. Quit \n'))
             if choice == 1:
