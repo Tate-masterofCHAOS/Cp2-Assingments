@@ -16,10 +16,8 @@ def main():
     elif choice == '2':
         current_koro = pet_selection()
         print(current_koro)
-    Event_timer = threading.Timer(random.randint(60,180), random_events, args=(current_koro,))
-    Event_timer.start()
-    Stat_timer = threading.Timer(random.randint(60,120), stat_update, args=(current_koro,))
-    Stat_timer.start()
+    stat_update(current_koro)
+    random_events.(current_koro)
     while True:
         if Event_timer.is_alive() == True and Stat_timer.is_alive() == True:
             if current_koro.shade == 'normal':

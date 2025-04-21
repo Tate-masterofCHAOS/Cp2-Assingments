@@ -1,6 +1,7 @@
 import time
 import csv
 import random
+import threading
 
 
 
@@ -674,6 +675,7 @@ def stat_update(current_koro):
     if current_koro.energy <= 30:
         print(f'{current_koro.name} is tired')
         current_koro.status = 'tired'
+    threading.Timer(random.randint(60, 120), random_events, args=[current_koro]).start()
     return current_koro
 
 
@@ -720,6 +722,7 @@ def random_events(current_koro):
         current_koro.happiness += 20
         if current_koro.happiness > current_koro.max_happiness:
             current_koro.happiness = current_koro.max_happiness
+    threading.Timer(random.randint(60, 120), random_events, args=[current_koro]).start()
     return current_koro
 
 
